@@ -254,7 +254,7 @@ function initSetup(){
   Array.from(mc.children).forEach(c=>c.classList.add("active"));
 
   // count chips
-  Array.from($$("countChips")).forEach(c=>{
+    Array.from(childrenByClass("countChips","chip")).forEach(c=>{
     c.addEventListener("click", ()=>{
       Array.from(c.parentElement.children).forEach(x=>x.classList.remove("active"));
       c.classList.add("active");
@@ -276,12 +276,6 @@ function initSetup(){
   $("statBookmarkedBox").addEventListener("click", ()=>openReview("bookmarked"));
 
   refreshStats();
-}
-
-function $$(id){return document.getElementById(id);}
-// fix: $$ should select children of an element by class — redefine cleanly
-function childrenByClass(parentId, cls){
-  return Array.from(document.getElementById(parentId).children);
 }
 
 // ---- stats ----
